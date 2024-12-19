@@ -1,27 +1,75 @@
-# 2806Memorando
+# Memorando :memo:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+Este projeto é uma aplicação simples de lista de tarefas, baseada no curso "Angular: torne sua aplicação interativa e personalizada com animações" da Alura. O foco da aplicação é a implementação de animações personalizadas para melhorar a experiência do usuário.
 
-## Development server
+## Funcionalidades :gear:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Cadastrar tarefa**: Adicione uma nova tarefa à lista.
+- **Marcar como concluída**: Alterne entre os estados "concluída" e "pendente" para uma tarefa.
+- **Editar tarefa**: Atualize o nome de uma tarefa existente.
+- **Excluir tarefa**: Remova uma tarefa da lista.
+- **Animações**: Transições suaves e personalizadas em diversas interações.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Frontend**: Angular
+- **Backend**: JsonServer (mock de API REST)
 
-## Build
+## Estrutura do Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `src/`: Contém todo o código do frontend em Angular.
+- `backend/`: Contém o JsonServer que emula um backend para a aplicação.
 
-## Running unit tests
+## Configuração do Ambiente
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Requisitos
 
-## Running end-to-end tests
+- Node.js
+- Angular CLI
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Instalação
 
-## Further help
+1. Clone este repositório:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   git clone <url-do-repositorio>
+   cd <nome-da-pasta-do-projeto>
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+3. Navegue até a pasta `backend` e inicie o JsonServer:
+
+   ```bash
+   cd backend
+   npx json-server --watch db.json
+   ```
+
+4. Volte para a raiz do projeto e inicie o servidor de desenvolvimento do Angular:
+
+   ```bash
+   cd ..
+   ng serve
+   ```
+
+5. Acesse a aplicação em seu navegador:
+
+   ```
+   http://localhost:4200
+   ```
+
+## Funcionalidades de Animações Implementadas
+
+
+## Referências
+
+- [Documentação Angular Animations](https://angular.io/guide/animations)
+- Curso "Angular: torne sua aplicação interativa e personalizada com animações" da Alura
+
+---
+
+Divirta-se explorando as animações e personalizando esta aplicação! Se encontrar qualquer problema ou tiver dúvidas, fique à vontade para abrir uma *issue*. 🚀
