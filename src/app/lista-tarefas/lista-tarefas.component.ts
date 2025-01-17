@@ -4,17 +4,35 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
+import { state, style, trigger } from '@angular/animations';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
-  styleUrls: ['./lista-tarefas.component.css']
+  styleUrls: ['./lista-tarefas.component.css'],
+  animations: [
+    // Definindo a animação chamada 'highlightedState'
+    trigger('highlightedState', [
+
+    // Definindo o estado inicial da animação
+    state('default', style({
+      border: '2px solid #B2B6FF'
+    })),
+
+    // Definindo o estado highlighted, que será o estilo quando o elemento estiver em destaque
+    state('highlighted', style({
+      transform: 'scale(1.05)',
+      filter: 'brightness(.92)'
+    }))
+  ])],
 })
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
   formAberto: boolean = false;
   categoria: string = '';
   validado: boolean = false;
+  indexTarefa: number = -1;
 
   formulario: FormGroup = this.fomBuilder.group({
     id: [0],
