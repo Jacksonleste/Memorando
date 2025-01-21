@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
-import { state, style, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { filter } from 'rxjs';
 
 @Component({
@@ -22,9 +22,15 @@ import { filter } from 'rxjs';
 
     // Definindo o estado highlighted, que será o estilo quando o elemento estiver em destaque
     state('highlighted', style({
-      transform: 'scale(1.05)',
       filter: 'brightness(.92)'
-    }))
+    })),
+    // aplicando transição entre os estados
+    transition('default => highlighted', [
+      animate('.2s ease-out', style({
+        transform: 'scale(1.02)',
+      })),
+      animate('.2s')
+    ])
   ])],
 })
 export class ListaTarefasComponent implements OnInit {
