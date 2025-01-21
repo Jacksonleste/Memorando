@@ -6,32 +6,13 @@ import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { filter } from 'rxjs';
+import { highlightedStateTrigger } from './animations';
 
 @Component({
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [
-    // Definindo a animação chamada 'highlightedState'
-    trigger('highlightedState', [
-
-    // Definindo o estado inicial da animação
-    state('default', style({
-      border: '2px solid #B2B6FF'
-    })),
-
-    // Definindo o estado highlighted, que será o estilo quando o elemento estiver em destaque
-    state('highlighted', style({
-      filter: 'brightness(.92)'
-    })),
-    // aplicando transição entre os estados
-    transition('default => highlighted', [
-      animate('.2s ease-out', style({
-        transform: 'scale(1.02)',
-      })),
-      animate('.2s')
-    ])
-  ])],
+  animations: [highlightedStateTrigger],
 })
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
