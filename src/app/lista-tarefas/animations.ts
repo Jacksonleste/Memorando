@@ -57,3 +57,24 @@ export const showStateTrigger = trigger('showState', [
     ),
   ]),
 ]);
+
+export const buttonMarkerTrigger = trigger('buttonMarker', [
+  transition('* => marked', [
+    animate(
+      300,
+      style({
+        transform: 'scale(.8)',
+      })
+    ),
+    animate('.3s'),
+  ]),
+  transition('marked => *', [
+    animate(
+      300,
+      style({
+        transform: 'scale(.8)',
+      })
+    ),
+    animate('.3s'),
+  ]),
+]);
