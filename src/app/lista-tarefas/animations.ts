@@ -1,5 +1,6 @@
 import {
   animate,
+  keyframes,
   state,
   style,
   transition,
@@ -39,12 +40,12 @@ export const highlightedStateTrigger =
 export const showStateTrigger = trigger('showState', [
   transition(':enter', [
     style({
-      opacity: 0
+      opacity: 0,
     }),
     animate(
       300,
       style({
-        opacity: 1
+        opacity: 1,
       })
     ),
   ]),
@@ -52,7 +53,7 @@ export const showStateTrigger = trigger('showState', [
     animate(
       300,
       style({
-        opacity: 0
+        opacity: 0,
       })
     ),
   ]),
@@ -76,5 +77,35 @@ export const buttonMarkerTrigger = trigger('buttonMarker', [
       })
     ),
     animate('.3s'),
+  ]),
+]);
+
+export const filterTrigger = trigger('filterAnimation', [
+  transition(':enter', [
+    style({
+      opacity: 0,
+      with: 0,
+    }),
+    animate(
+      '400ms ease-out',
+      keyframes([
+        style({opacity: 0, width: '0',}),
+        style({opacity: .8, width: '*'}),
+        style({opacity: 1, width: '*',})
+      ])
+    ),
+  ]),
+  transition(':leave', [
+    style({
+      opacity: 1,
+      width: '*',
+    }),
+    animate(
+      '400ms ease-out',
+      style({
+        opacity: 0,
+        width: 0,
+      })
+    ),
   ]),
 ]);
