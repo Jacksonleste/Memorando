@@ -101,7 +101,7 @@ export const filterTrigger = trigger('filterAnimation', [
       width: '*',
     }),
     animate(
-      '400ms ease-out',
+      '400ms cubic-bezier(1,.01,.35,1.02)',
       style({
         opacity: 0,
         width: 0,
