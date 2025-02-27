@@ -89,9 +89,9 @@ export const filterTrigger = trigger('filterAnimation', [
     animate(
       '400ms ease-out',
       keyframes([
-        style({opacity: 0, width: '0',}),
-        style({opacity: .8, width: '*'}),
-        style({opacity: 1, width: '*',})
+        style({offset: 0, opacity: 0, width: '0',}),
+        style({offset: .8, opacity: .5, width: '*'}),
+        style({offset: 1, opacity: 1, width: '*',})
       ])
     ),
   ]),
