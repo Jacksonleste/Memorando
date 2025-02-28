@@ -31,7 +31,7 @@ export class ListaTarefasComponent implements OnInit {
   categoria: string = '';
   validado: boolean = false;
   indexTarefa: number = -1;
-  id: Number = 0;
+  id: number = 0;
   campoBusca: string = '';
   tarefasFiltradas: Tarefa[] = [];
 
@@ -147,10 +147,14 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   listarAposCheck() {
-    this.service.listar(this.categoria).subscribe((listaTarefas) => {
-      this.tarefasFiltradas = listaTarefas;
+    this.service.buscarPorId(this.id!).subscribe((tarefaAtualizada) => {
+      const tarefaIndex = this.tarefasFiltradas.findIndex(t => t.id === this.id);
+      if (tarefaIndex !== -1) {
+        this.tarefasFiltradas[tarefaIndex] = tarefaAtualizada;
+      }
     });
   }
+
 
   habilitarBotao(): string {
     if (this.formulario.valid) {
@@ -169,5 +173,9 @@ export class ListaTarefasComponent implements OnInit {
       this.validado = true;
       return 'form-tarefa';
     }
+  }
+
+  trackById(tarefa: any): number {
+    return tarefa.id;
   }
 }

@@ -1,6 +1,8 @@
 import {
   animate,
+  animateChild,
   keyframes,
+  query,
   state,
   style,
   transition,

@@ -86,7 +86,7 @@
       @filterAnimation
       [@highlightedState]="indexTarefa == i ? 'highlighted' : 'default'"
       class="lista-tarefas card-{{ tarefa.categoria }}"
-      *ngFor="let tarefa of tarefasFiltradas; let i = index"
+      *ngFor="let tarefa of tarefasFiltradas; let i = index; trackBy: trackById"
       (mouseover)="indexTarefa = i"
       >
       <div class="info-card">
@@ -103,7 +103,7 @@
           <button
             [@buttonMarker]="tarefa.id === id ? 'marked' : 'default'"
             [ngClass]="(tarefa.statusFinalizado == true) ? 'icone-checked' : 'icone-unchecked'"
-            (click)="finalizarTarefa(tarefa.id);">
+            (click)="finalizarTarefa(tarefa.id); $event.stopPropagation();">
           </button>
         </p>
       </div>
