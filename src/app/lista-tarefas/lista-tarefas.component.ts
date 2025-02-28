@@ -15,6 +15,7 @@ import { filter } from 'rxjs';
 import {
   buttonMarkerTrigger,
   filterTrigger,
+  formButtonTrigger,
   highlightedStateTrigger,
   showStateTrigger,
 } from './animations';
@@ -23,7 +24,13 @@ import {
   selector: 'app-lista-tarefas',
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [highlightedStateTrigger, showStateTrigger, buttonMarkerTrigger, filterTrigger],
+  animations: [
+    highlightedStateTrigger,
+    showStateTrigger,
+    buttonMarkerTrigger,
+    filterTrigger,
+    formButtonTrigger
+  ],
 })
 export class ListaTarefasComponent implements OnInit {
   listaTarefas: Tarefa[] = [];
@@ -148,13 +155,14 @@ export class ListaTarefasComponent implements OnInit {
 
   listarAposCheck() {
     this.service.buscarPorId(this.id!).subscribe((tarefaAtualizada) => {
-      const tarefaIndex = this.tarefasFiltradas.findIndex(t => t.id === this.id);
+      const tarefaIndex = this.tarefasFiltradas.findIndex(
+        (t) => t.id === this.id
+      );
       if (tarefaIndex !== -1) {
         this.tarefasFiltradas[tarefaIndex] = tarefaAtualizada;
       }
     });
   }
-
 
   habilitarBotao(): string {
     if (this.formulario.valid) {
