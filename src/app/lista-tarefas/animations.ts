@@ -115,31 +115,36 @@ export const filterTrigger = trigger('filterAnimation', [
 
 export const formButtonTrigger = trigger('formButton', [
   transition('invalid => valid', [
-    group([
+    query('#botao-salvar',[
+      group([
+        animate('.2s', style({
+          backgroundColor: '#63B77C',
+        })),
+        animate('.2s', style({
+          transform: 'scale(1.1)',
+        }))
+      ]),
       animate('.2s', style({
-        backgroundColor: '#63B77C',
-      })),
-      animate('.2s', style({
-        transform: 'scale(1.1)',
+        transform: 'scale(1)',
       }))
     ]),
-    animate('.2s', style({
-      transform: 'scale(1)',
-    }))
-  ]),
-  transition('valid => invalid', [
-    group([
-      animate('.2s', style({
-        backgroundColor: '#6C757D',
-      })),
-      animate('.2s', style({
-        transform: 'scale(1.1)',
-      }))
     ]),
-    animate('.1s', style({
-      transform: 'scale(1)',
-    }))
-  ])
+
+    transition('valid => invalid', [
+      query('#botao-salvar',[
+        group([
+          animate('.2s', style({
+            backgroundColor: '#6C757D',
+          })),
+          animate('.2s', style({
+            transform: 'scale(1.1)',
+          }))
+        ]),
+        animate('.1s', style({
+          transform: 'scale(1)',
+        }))
+      ])
+    ])
 ]);
 
 export const noContentTextTrigger = trigger('noContentText', [
