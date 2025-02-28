@@ -17,6 +17,7 @@ import {
   filterTrigger,
   formButtonTrigger,
   highlightedStateTrigger,
+  noContentTextTrigger,
   showStateTrigger,
 } from './animations';
 
@@ -29,7 +30,8 @@ import {
     showStateTrigger,
     buttonMarkerTrigger,
     filterTrigger,
-    formButtonTrigger
+    formButtonTrigger,
+    noContentTextTrigger
   ],
 })
 export class ListaTarefasComponent implements OnInit {
